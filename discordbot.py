@@ -2,12 +2,18 @@ import discord
 from pprint import pprint
 from dotenv import load_dotenv
 from os import getenv
-from time import sleep
+from time import sleep 
+from discord.ext import commands
 
 client = discord.Client()
 
 load_dotenv()
 TOKEN = getenv('TOKEN')
+
+intents = discord.Intents.default() 
+intents.message_content = True 
+
+bot = commands.Bot(command_prefix='$', intents=intents)
 
 
 @client.event 
